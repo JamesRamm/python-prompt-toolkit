@@ -103,7 +103,8 @@ def input_dialog(
         cancel_text: str = 'Cancel',
         completer: Optional[Completer] = None,
         password: FilterOrBool = False,
-        style: Optional[BaseStyle] = None) -> Application[str]:
+        style: Optional[BaseStyle] = None,
+        default_text: str = '') -> Application[str]:
     """
     Display a text input box.
     Return the given text, or None when cancelled.
@@ -119,6 +120,7 @@ def input_dialog(
     cancel_button = Button(text=cancel_text, handler=_return_none)
 
     textfield = TextArea(
+        text=default_text
         multiline=False,
         password=password,
         completer=completer,
